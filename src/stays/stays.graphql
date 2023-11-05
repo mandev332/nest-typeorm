@@ -1,0 +1,28 @@
+type Stay {
+  id: Int
+  user: User
+  event: Event
+  create_at: String
+}
+
+input CreateStayInput {
+  user_id: Int!
+  event_id: Int!
+}
+
+input UpdateStayInput {
+  id: Int!
+  user_id: Int
+  event_id: Int
+}
+
+type Query {
+  stays: [Stay]!
+  stay(id: Int!): Stay
+}
+
+type Mutation {
+  createStay(createStayInput: CreateStayInput!): Stay!
+  updateStay(updateStayInput: UpdateStayInput!): Stay!
+  removeStay(id: Int!): Stay
+}

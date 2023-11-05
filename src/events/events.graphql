@@ -1,0 +1,40 @@
+type Event {
+  id: Int
+  name: String
+  description: String
+  start_time: String
+  end_time: String
+  check_price: Int
+  all_stay: Int
+  create_at: String
+}
+
+input CreateEventInput {
+  name: String!
+  description: String!
+  start_time: String!
+  end_time: String!
+  check_price: Int!
+  all_stay: Int!
+}
+
+input UpdateEventInput {
+  id: Int!
+  name: String!
+  description: String!
+  start_time: String!
+  end_time: String!
+  check_price: Int!
+  all_stay: Int!
+}
+
+type Query {
+  events: [Event]!
+  event(id: Int!): Event
+}
+
+type Mutation {
+  createEvent(createEventInput: CreateEventInput!): Event!
+  updateEvent(updateEventInput: UpdateEventInput!): Event!
+  removeEvent(id: Int!): Event
+}
